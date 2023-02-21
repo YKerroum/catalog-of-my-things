@@ -1,5 +1,8 @@
+require_relative 'app'
+
 def main
-  puts 'Hello, World!'
+  app = App.new
+  app.action_controller
 end
 
 main
