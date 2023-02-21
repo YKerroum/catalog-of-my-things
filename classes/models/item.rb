@@ -10,8 +10,8 @@ class Item
 
   attr_accessor :publish_date
 
-  def initialize(genre, author, label, publish_date)
-    @id = Random.rand(1..1000)
+  def initialize(genre, author, label, publish_date, id: nil)
+    @id = id || Random.rand(1..1000)
     @genre = genre
     @author = author
     @label = label
