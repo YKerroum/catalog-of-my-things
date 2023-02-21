@@ -9,8 +9,9 @@ class Item
   public
 
   attr_accessor :publish_date
+  attr_reader :genre, :author, :label
 
-  def initialize(genre, author, label, publish_date, id: nil)
+  def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists
     @id = id || Random.rand(1..1000)
     @genre = genre
     @author = author
@@ -26,7 +27,7 @@ class Item
 
   def author=(author)
     @author = author
-    author.add_item(self)
+    author.add_item(self) unless author.items.include?(self)
   end
 
   def label=(label)
@@ -37,7 +38,7 @@ class Item
   private
 
   def can_be_archived?
-    current_date = Date.now
+    current_date = Date.today
     (current_date.year - @publish_date.year) > 10
   end
 
