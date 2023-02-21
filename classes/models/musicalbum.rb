@@ -1,7 +1,7 @@
 require_relative 'item'
 class MusicAlbum < Item
-  def initialize(genre, author, label, publish_date, on_spotify: false, id: nil) # rubocop:disable Metrics/ParameterLists
-    super(genre, author, label, publish_date, id)
+  def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil, on_spotify: false) # rubocop:disable Metrics/ParameterLists
+    super( publish_date, genre, author, label, id)
     @on_spotify = on_spotify
   end
 
