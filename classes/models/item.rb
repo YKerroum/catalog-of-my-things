@@ -9,8 +9,9 @@ class Item
   public
 
   attr_accessor :publish_date
+  attr_reader :genre, :author, :label
 
-  def initialize(genre, author, label, publish_date, id: nil)
+  def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists
     @id = id || Random.rand(1..1000)
     @genre = genre
     @author = author
@@ -21,12 +22,12 @@ class Item
 
   def genre=(genre)
     @genre = genre
-    genre.add_item(self)
+    genre.add_item(self) unless genre.items.include?(self)
   end
 
   def author=(author)
     @author = author
-    author.add_item(self)
+    author.add_item(self) unless author.items.include?(self)
   end
 
   def label=(label)
