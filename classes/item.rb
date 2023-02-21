@@ -15,7 +15,7 @@ class Item
     @genre = genre
     @author = author
     @label = label
-    @publish_date = publish_date
+    @publish_date = Date.parse(publish_date)
     @archived = false
   end
 
@@ -37,12 +37,13 @@ class Item
   private
 
   def can_be_archived?
-    @archived = true
+    current_date = Date.now
+    (current_date.year - @publish_date.year) > 10
   end
 
   public
 
   def move_to_archive
-    can_be_archived?
+    @archived = true if can_be_archived?
   end
 end
