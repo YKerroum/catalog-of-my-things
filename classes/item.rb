@@ -38,7 +38,7 @@ class Item
 
   def can_be_archived?
     current_date = Date.now
-    (current_date.year - @publish_date.year).positive?
+    (current_date.year - @publish_date.year) > 10
   end
 
   public
