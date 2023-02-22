@@ -1,13 +1,18 @@
 require_relative 'books_manager'
 require_relative 'labels_manager'
+require_relative 'album_manager'
+require_relative 'genre_manager'
 
 class App
   def initialize
     @labels = LabelManager.new
     @books = BooksManager.new
     @albums = AlbumManager.new
+    @genres = GenreManager.new
     @books.books = Storage.load('books')
     @labels.labels = Storage.load('labels')
+    @albums.albums = Storage.load('albums')
+    @genres.genres = Storage.load('genres')
   end
 
   def display_menu
@@ -31,7 +36,7 @@ class App
       4 => method(@books.all_books),
       5 => method(@albums.all_albums),
       6 => method(@labels.all_labels),
-      7 => method(:display_genres),
+      7 => method(@genres.all_genres),
       8 => method(:display_games),
       9 => method(:display_authors),
       10 => method(:exit)
