@@ -1,4 +1,5 @@
 require_relative '../../models/musicalbum'
+require_relative '../../models/label'
 require_relative '../../models/genre'
 
 class AlbumManager
@@ -8,7 +9,7 @@ class AlbumManager
     @albums = []
   end
 
-  def add_book()
+  def add_album()
     puts 'Is this music available on Spotify?[Y/N]:'
     on_spotify = gets.chomp.upcase
     puts 'Enter Album publish date:'
