@@ -5,7 +5,7 @@ create table if not exists label (
     primary key (id)
 );
 
-create table if not exists items (
+create table if not exists item (
     id int not null generated always as identity,
     publish_date date not null,
     archived boolean default false,
