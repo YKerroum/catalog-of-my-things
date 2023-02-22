@@ -16,4 +16,24 @@ class Game < Item
   def can_be_archived?
     super && (Date.today - @last_played_at) > 730
   end
+
+  public
+
+    def to_json(*args)
+        {
+            JSON.create_id => self.class.name,
+            'id' => @id,
+            'genre' => @genre,
+            'author' => @author,
+            'label' => @label,
+            'publish_date' => @publish_date,
+            'archived' => @archived,
+            'multiplayer' => @multiplayer,
+            'last_played_at' => @last_played_at
+        }.to_json(*args)
+    end
+
+    def self.json_create(object)
+        new(object['multiplayer'], object['last_played_at'], object['publish_date'], object['genre'], object['author'], object['label'], object['id'])
+    end
 end
