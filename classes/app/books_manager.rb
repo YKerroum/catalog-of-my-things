@@ -2,6 +2,8 @@ require_relative '../models/book'
 require_relative '../models/genre'
 
 class BooksManager
+  attr_accessor :books
+
   def initialize
     @books = []
   end

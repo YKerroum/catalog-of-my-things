@@ -1,5 +1,7 @@
 require_relative '../models/label'
 class LabelManager
+  attr_accessor :labels
+
   def initialize
     @labels = []
   end
