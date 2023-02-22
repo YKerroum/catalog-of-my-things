@@ -8,7 +8,7 @@ class GameManager
     @games = []
   end
 
-  def add_game(labels)
+  def add_game()
     puts 'Is this game a multiplayer one ?[Y/N]:'
     multiplayer = gets.chomp.upcase
     puts 'Enter the publish date:'
