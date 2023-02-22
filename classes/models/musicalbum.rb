@@ -10,4 +10,21 @@ class MusicAlbum < Item
   def can_be_archived?
     super && @on_spotify
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'publish_date' => @publish_date,
+      'on_spotify' => @on_spotify,
+      'genre' => @genre,
+      'label' => @label,
+      'author' => @author,
+      'id' => @id
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    new(object['publish_date'], on_spotify: object['on_spotify'],  genre: object['genre'], label: object['label'], author: object['author'],
+       id: object['id'])
+  end
 end
