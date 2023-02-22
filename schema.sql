@@ -7,5 +7,8 @@ create table if not exists items (
     id_author int,
     id_label int,
 
-    );
-)
+    primary key (id),
+    foreign key (id_genre) references genre(id),
+    foreign key (id_author) references author(id),
+    foreign key (id_label) references label(id)
+);
