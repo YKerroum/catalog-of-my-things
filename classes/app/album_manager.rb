@@ -1,6 +1,6 @@
-require_relative '../../models/musicalbum'
-require_relative '../../models/label'
-require_relative '../../models/genre'
+require_relative '../models/musicalbum'
+require_relative '../models/label'
+require_relative '../models/genre'
 
 class AlbumManager
   attr_accessor :albums
