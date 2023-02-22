@@ -17,7 +17,7 @@ class GenreManager
     if @genres.empty?
       puts 'No genre found in the catalog'
     else
-      @genres.each do |genre, index|
+      @genres.each do |_genre, index|
         puts "#{index + 1} -)  #{album.title}"
       end
       puts ''

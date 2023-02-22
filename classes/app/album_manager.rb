@@ -24,7 +24,7 @@ class AlbumManager
     puts 'Enter the Label Color:'
     label_color = gets.chomp
     label = Label.new(label_name, label_color)
-    album =MusicAlbum.new(publish_date, on_spotify: on_spotify, genre: genre, label: label, author: author)
+    album = MusicAlbum.new(publish_date, on_spotify: on_spotify, genre: genre, label: label, author: author)
     @albums << album
     puts 'Album created successfully'
   end
