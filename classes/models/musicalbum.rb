@@ -24,7 +24,11 @@ class MusicAlbum < Item
   end
 
   def self.json_create(object)
-    new(object['publish_date'], on_spotify: object['on_spotify'],  genre: object['genre'], label: object['label'], author: object['author'],
-       id: object['id'])
+    new(object['publish_date'],
+        on_spotify: object['on_spotify'],
+        genre: object['genre'],
+        label: object['label'],
+        author: object['author'],
+        id: object['id'])
   end
 end
