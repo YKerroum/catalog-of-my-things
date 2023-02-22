@@ -5,7 +5,7 @@ require 'date'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(multiplayer, last_played, publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists
+  def initialize(multiplayer, publish_date, genre = nil, author = nil, label = nil, id = nil, last_played = nil) # rubocop:disable Metrics/ParameterLists
     super(publish_date, genre, author, label, id)
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played)
@@ -34,7 +34,7 @@ class Game < Item
   end
 
   def self.json_create(object)
-    new(object['multiplayer'], object['last_played_at'], object['publish_date'], object['genre'], object['author'],
-        object['label'], object['id'])
+    new(object['multiplayer'], object['publish_date'], object['genre'], object['author'],
+        object['label'], object['id'], object['last_played_at'])
   end
 end

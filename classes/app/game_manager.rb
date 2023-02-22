@@ -13,8 +13,6 @@ class GameManager
     multiplayer = gets.chomp.upcase
     puts 'Enter the publish date:'
     publish_date = gets.chomp
-    puts 'Enter the Last played date:'
-    last_played = gets.chomp
     puts 'Enter author Firstname:'
     author_first = gets.chomp
     puts 'Enter author Lastname:'
@@ -28,7 +26,7 @@ class GameManager
     puts 'Enter the Label Color:'
     label_color = gets.chomp
     label = Label.new(label_name, label_color)
-    game = Game.new(multiplayer, last_played, publish_date, genre, author, label)
+    game = Game.new(multiplayer, publish_date, genre: genre, author: author, label: label, last_played: last_played)
     @games << game
     puts 'Album created successfully'
   end
