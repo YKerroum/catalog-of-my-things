@@ -1,34 +1,37 @@
+require_relative 'books_manager'
+require_relative 'labels_manager'
+
 class App
   def initialize
-    @genres = []
-    @authors = []
-    @labels = []
-    @items = []
+    @labels = LabelManager.new
+    @books = BooksManager.new
   end
 
   def display_menu
-    puts '1. Add genre'
-    puts '2. Add author'
-    puts '3. Add label'
-    puts '4. Add item'
-    puts '5. Display all genres'
-    puts '6. Display all authors'
-    puts '7. Display all labels'
-    puts '8. Display all items'
-    puts '9. Exit'
+    puts '1. Add book'
+    puts '2. Add music album'
+    puts '3. Add game'
+    puts '4. Display all books'
+    puts '5. Display all music albums'
+    puts '6. Display all labels'
+    puts '7. Display all genres'
+    puts '8. Display all games'
+    puts '9. Dsiplay all authors'
+    puts '10. Exit'
   end
 
   def action_controller
     choices = {
-      1 => method(:add_genre),
-      2 => method(:add_author),
-      3 => method(:add_label),
-      4 => method(:add_item),
-      5 => method(:display_genres),
-      6 => method(:display_authors),
-      7 => method(:display_labels),
-      8 => method(:display_items),
-      9 => method(:exit)
+      1 => method(@books.add_book(@labels)),
+      2 => method(:add_music_album),
+      3 => method(:add_game),
+      4 => method(@books.all_books),
+      5 => method(:display_music_albums),
+      6 => method(@labels.all_labels),
+      7 => method(:display_genres),
+      8 => method(:display_games),
+      9 => method(:display_authors),
+      10 => method(:exit)
     }
     loop do
       display_menu
