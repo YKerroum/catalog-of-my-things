@@ -9,10 +9,14 @@ class App
     @books = BooksManager.new
     @albums = AlbumManager.new
     @genres = GenreManager.new
+    @games = GamesManager.new
+    @authors = AuthorManager.new
     @books.books = Storage.load('books')
     @labels.labels = Storage.load('labels')
     @albums.albums = Storage.load('albums')
     @genres.genres = Storage.load('genres')
+    @games.games = Storage.load('games')
+    @authors.authors = Storage.load('authors')
   end
 
   def display_menu
@@ -32,13 +36,13 @@ class App
     choices = {
       1 => method(@books.add_book(@labels)),
       2 => method(@albums.add_album),
-      3 => method(:add_game),
+      3 => method(@games.add_game),
       4 => method(@books.all_books),
       5 => method(@albums.all_albums),
       6 => method(@labels.all_labels),
       7 => method(@genres.all_genres),
-      8 => method(:display_games),
-      9 => method(:display_authors),
+      8 => method(@games.all_games),
+      9 => method(@authors.all_authors),
       10 => method(:exit)
     }
     loop do
