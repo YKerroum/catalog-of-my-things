@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'json'
 class Label
   private
 
@@ -18,5 +19,18 @@ class Label
   def add_item(item)
     @items << item
     item.label = self
+  end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'title' => @title,
+      'color' => @color
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    new(object['title'], object['color'], object['id'])
   end
 end

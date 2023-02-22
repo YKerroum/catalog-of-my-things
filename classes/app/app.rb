@@ -5,6 +5,8 @@ class App
   def initialize
     @labels = LabelManager.new
     @books = BooksManager.new
+    @books.books = Storage.load('books')
+    @labels.labels = Storage.load('labels')
   end
 
   def display_menu
@@ -40,5 +42,11 @@ class App
       action = choices[choice] || raise("Invalid option: #{choice}")
       action.call
     end
+  end
+
+  def exit
+    Storage.save('books', @books.books)
+    Storage.save('labels', @labels.labels)
+    exit
   end
 end
