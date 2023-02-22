@@ -12,4 +12,16 @@ class Genre
     item.genre = self unless item.genre == self
     @items << item
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'name' => @genre,
+      'id' => @id
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    new(object['name'], object['id'])
+  end
 end
