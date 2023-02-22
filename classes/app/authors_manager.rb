@@ -20,9 +20,8 @@ class AuthorManager
       puts 'No author found in the catalog'
     else
       @authors.each do |author, index|
-        puts "Author  #{index + 1}"
-        puts "First Name : #{author.first_name}"
-        puts "Last Name : #{album.last_name}"
+        print "#{index + 1} -)"
+        puts " #{author.first_name} #{album.last_name} "
         puts ''
       end
       puts ''
