@@ -3,6 +3,7 @@ require 'json'
 require 'date'
 
 class Game < Item
+  attr_reader :id
   attr_accessor :multiplayer, :last_played_at
 
   def initialize(multiplayer, last_played, publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists

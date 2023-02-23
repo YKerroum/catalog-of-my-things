@@ -9,22 +9,16 @@ class AlbumManager
     @albums = []
   end
 
-  def add_album()
+  def add_album(labels, authors, genres)
     puts 'Is this music available on Spotify?[Y/N]:'
     on_spotify = gets.chomp.upcase
+    on_spotify = %w[Y YES].include?(on_spotify)
     puts 'Enter Album publish date:'
     publish_date = gets.chomp
-    puts 'Enter Album  Author:'
-    author = gets.chomp
-    puts 'Enter Album  genre:'
-    genre_title = gets.chomp
-    genre = Genre.new(genre_title)
-    puts 'Enter the Label Name :'
-    label_name = gets.chomp
-    puts 'Enter the Label Color:'
-    label_color = gets.chomp
-    label = Label.new(label_name, label_color)
-    album = MusicAlbum.new(publish_date, on_spotify: on_spotify, genre: genre, label: label, author: author)
+    genre = genres.add_genre
+    label = labels.add_label
+    author = authors.add_author
+    album = MusicAlbum.new(publish_date, genre, author, label, nil, on_spotify)
     @albums << album
     puts 'Album created successfully'
   end
@@ -34,15 +28,13 @@ class AlbumManager
       puts 'No Music Album found in the catalog'
     else
       @albums.each_with_index do |album, index|
-        puts "#{index + 1}. #{album.title}"
+        puts "Album number #{index + 1}."
         puts "ID: #{album.id}"
-        puts "Author: #{album.author}"
+        puts "Author: #{album.author.first_name} #{album.author.last_name}"
         puts "Publish date: #{album.publish_date}"
-        puts "Genre: #{album.genre}"
-        puts "Label: #{album.label.name}"
-        puts "Publisher: #{album.publisher}"
-        puts "On Spotify: #{book.on_spotify}"
-        puts "Archived: #{book.can_be_archived?}"
+        puts "Genre: #{album.genre.name}"
+        puts "Label: #{album.label.title}"
+        puts "On Spotify: #{album.on_spotify}"
         puts '-----------------------'
       end
     end

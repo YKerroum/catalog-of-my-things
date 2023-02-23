@@ -1,0 +1,1 @@
+[{"json_class":"Book","publisher":"koami","cover_state":"ne","publish_date":"2020-06-01","genre":{"json_class":"Genre","name":"action","id":335},"author":{"json_class":"Author","first_name":"youssef","last_name":"kerroum","id":493},"label":{"json_class":"Label","id":167,"title":"koami edition","color":"red"},"id":578}]

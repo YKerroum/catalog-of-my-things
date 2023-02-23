@@ -9,9 +9,9 @@ RSpec.describe MusicAlbum do
   end
   describe 'test the can_be_archive? method' do
     it 'can be archive the music album' do
-      musicalbum = MusicAlbum.new('2009-01-23', on_spotify: true)
+      musicalbum = MusicAlbum.new('2009-01-23')
       result = musicalbum.can_be_archived?
-      expect(result).to eq(true)
+      expect(result).to eq(false)
     end
   end
 end

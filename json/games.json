@@ -1,0 +1,1 @@
+[{"json_class":"Game","id":28,"genre":{"json_class":"Genre","name":"sports","id":173},"author":{"json_class":"Author","first_name":"nela","last_name":"benjamin","id":64},"label":{"json_class":"Label","id":273,"title":"new label","color":"yellow"},"publish_date":"2020-03-01","archived":false,"multiplayer":true,"last_played_at":"2021-06-01"}]

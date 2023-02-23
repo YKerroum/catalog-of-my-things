@@ -1,8 +1,9 @@
 require_relative 'item'
 class MusicAlbum < Item
+  attr_reader :id
   attr_accessor :on_spotify
 
-  def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil, on_spotify: false) # rubocop:disable Metrics/ParameterLists
+  def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil, on_spotify = false) # rubocop:disable Metrics/ParameterLists, Style/OptionalBooleanParameter
     super(publish_date, genre, author, label, id)
     @on_spotify = on_spotify
   end
@@ -25,10 +26,10 @@ class MusicAlbum < Item
 
   def self.json_create(object)
     new(object['publish_date'],
-        on_spotify: object['on_spotify'],
-        genre: object['genre'],
-        label: object['label'],
-        author: object['author'],
-        id: object['id'])
+        object['genre'],
+        object['author'],
+        object['label'],
+        object['id'],
+        object['on_spotify'])
   end
 end

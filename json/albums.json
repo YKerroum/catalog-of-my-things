@@ -1,0 +1,1 @@
+[{"json_class":"MusicAlbum","publish_date":"2020-05-01","on_spotify":true,"genre":{"json_class":"Genre","name":"jazz","id":159},"label":{"json_class":"Label","id":302,"title":"starteck","color":"white"},"author":{"json_class":"Author","first_name":"koami","last_name":"NOGBEDJI","id":600},"id":2}]

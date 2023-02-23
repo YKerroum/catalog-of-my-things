@@ -2,6 +2,7 @@ require_relative 'item'
 require 'json'
 
 class Book < Item
+  attr_reader :id
   attr_accessor :publisher, :cover_state
 
   def initialize(publisher, cover_state, publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists

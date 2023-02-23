@@ -2,6 +2,9 @@ require_relative 'books_manager'
 require_relative 'labels_manager'
 require_relative 'album_manager'
 require_relative 'genre_manager'
+require_relative 'game_manager'
+require_relative 'authors_manager'
+require_relative 'storage'
 
 class App
   def initialize
@@ -9,7 +12,7 @@ class App
     @books = BooksManager.new
     @albums = AlbumManager.new
     @genres = GenreManager.new
-    @games = GamesManager.new
+    @games = GameManager.new
     @authors = AuthorManager.new
     @books.books = Storage.load('books')
     @labels.labels = Storage.load('labels')
@@ -34,16 +37,16 @@ class App
 
   def action_controller
     choices = {
-      1 => method(@books.add_book(@labels)),
-      2 => method(@albums.add_album),
-      3 => method(@games.add_game),
-      4 => method(@books.all_books),
-      5 => method(@albums.all_albums),
-      6 => method(@labels.all_labels),
-      7 => method(@genres.all_genres),
-      8 => method(@games.all_games),
-      9 => method(@authors.all_authors),
-      10 => method(:exit)
+      1 => -> { @books.add_book(@labels, @authors, @genres) },
+      2 => -> { @albums.add_album(@labels, @authors, @genres) },
+      3 => -> { @games.add_game(@labels, @authors, @genres) },
+      4 => -> { @books.all_books },
+      5 => -> { @albums.all_albums },
+      6 => -> { @labels.all_labels },
+      7 => -> { @genres.all_genres },
+      8 => -> { @games.all_games },
+      9 => -> { @authors.all_authors },
+      10 => -> { exit }
     }
     loop do
       display_menu
@@ -57,6 +60,11 @@ class App
   def exit
     Storage.save('books', @books.books)
     Storage.save('labels', @labels.labels)
-    exit
+    Storage.save('albums', @albums.albums)
+    Storage.save('genres', @genres.genres)
+    Storage.save('games', @games.games)
+    Storage.save('authors', @authors.authors)
+    puts 'Goodbye!'
+    super
   end
 end

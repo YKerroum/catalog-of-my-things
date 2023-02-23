@@ -20,8 +20,9 @@ class LabelManager
     if @labels.empty?
       puts 'No labels in the catalog'
     else
-      @labels.each do |label|
-        print "#{label.title} "
+      @labels.each_with_index do |label, index|
+        print "#{index + 1} -)"
+        puts "#{label.title} "
       end
       puts ''
     end

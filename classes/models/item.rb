@@ -1,15 +1,14 @@
 require 'date'
 require 'time'
-
 class Item
   private
 
-  attr_accessor :id, :archived
+  attr_accessor :archived
 
   public
 
   attr_accessor :publish_date
-  attr_reader :genre, :author, :label
+  attr_reader :genre, :author, :label, :id
 
   def initialize(publish_date, genre = nil, author = nil, label = nil, id = nil) # rubocop:disable Metrics/ParameterLists
     @id = id || Random.rand(1..1000)
