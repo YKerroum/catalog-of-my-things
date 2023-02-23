@@ -12,7 +12,7 @@
 
 # 📗 Table of Contents
 
-- [� Table of Contents](#-table-of-contents)
+- [📗 Table of Contents](#-table-of-contents)
 - [📖 My catalog of things ](#-my-catalog-of-things-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
@@ -84,7 +84,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](https://www.loom.com/share/788f0703871042d98389eb0f0f6d8c80)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
